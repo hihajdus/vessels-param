@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http'
 import { AgGridModule } from 'ag-grid-angular';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,9 @@ import { AgGridModule } from 'ag-grid-angular';
     MatButtonModule,
     MatCardModule,
     HttpClientModule,
-    AgGridModule
+    AgGridModule,
+    HighchartsChartModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
