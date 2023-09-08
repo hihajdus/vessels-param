@@ -1,8 +1,8 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, ViewChild } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
 import { CellClickedEvent, ColDef, GridReadyEvent } from 'ag-grid-community';
 import { Observable } from 'rxjs';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-vessels',
@@ -35,12 +35,17 @@ export class VesselsComponent {
   // For accessing the Grid's API
   @ViewChild(AgGridAngular) agGrid!: AgGridAngular;
 
-  constructor(private http: HttpClient) {}
+  constructor(private dataService: DataService) {}
 
   // Example load data from server
   onGridReady(params: GridReadyEvent) {
-    this.rowData$ = this.http
-      .get<any[]>('https://frontendteamfiles.blob.core.windows.net/exercises/vessels.json');
+    this.rowData$ = this.dataService.getDataStream();
+    
+    // Example with service load in params
+
+    // this.dataService.getDataStream().subscribe((data) => {
+    //   params.api?.setRowData(data);
+    // });
   }
 
   // Example of consuming Grid Event
