@@ -9,7 +9,7 @@ export class DataService {
 
   constructor(private http: HttpClient) { }
 
-  public dataStream$ = new Observable<any[]>((observer) => {
+  public dataVessel$ = new Observable<any[]>((observer) => {
     this.http
       .get<any[]>('https://frontendteamfiles.blob.core.windows.net/exercises/vessels.json')
       .subscribe((data) => {
@@ -18,7 +18,22 @@ export class DataService {
       });
   });
 
-  public getDataStream(): Observable<any[]> {
-    return this.dataStream$;
+  public getDataVesselStream(): Observable<any[]> {
+    return this.dataVessel$;
   } 
+
+  public dataEmission$ = new Observable<any[]>((observer) => {
+    this.http
+      .get<any[]>('https://frontendteamfiles.blob.core.windows.net/exercises/emissions.json')
+      .subscribe((data) => {
+        observer.next(data);
+        observer.complete();
+      });
+  });
+
+  public getDataEmissionStream(): Observable<any[]> {
+    return this.dataEmission$;
+  }
+
+
 }

@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
-import { CellClickedEvent, ColDef, GridReadyEvent } from 'ag-grid-community';
+import { ColDef, GridReadyEvent } from 'ag-grid-community';
 import { Observable } from 'rxjs';
 import { DataService } from 'src/app/services/data.service';
 
@@ -39,17 +39,6 @@ export class VesselsComponent {
 
   // Example load data from server
   onGridReady(params: GridReadyEvent) {
-    this.rowData$ = this.dataService.getDataStream();
-    
-    // Example with service load in params
-
-    // this.dataService.getDataStream().subscribe((data) => {
-    //   params.api?.setRowData(data);
-    // });
-  }
-
-  // Example of consuming Grid Event
-  onCellClicked( e: CellClickedEvent): void {
-    console.log('cellClicked', e);
+    this.rowData$ = this.dataService.getDataVesselStream();
   }
 }

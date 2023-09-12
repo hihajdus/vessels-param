@@ -5,17 +5,27 @@
         </mat-card-title>
     </mat-card-header>
     <br>
-    <highcharts-chart 
-    [Highcharts]="Highcharts"
+<mat-form-field>
+  <mat-label>Vessel</mat-label>
+  <mat-select [(value)] = "selected" (selectionChange)="setChartData($event)">
+    <mat-option *ngFor="let vessel of vessels" [value]="vessel.id">
+      {{vessel.name}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
 
-    [constructorType]="chartConstructor"
-    [options]="chartOptions"
+<highcharts-chart 
+[Highcharts]="Highcharts"
 
-    [(update)]="updateFlag"
-    [oneToOne]="oneToOneFlag"
-    [runOutsideAngular]="runOutsideAngular"
+[constructorType]="chartConstructor"
+[options]="chartOptions"
+[callbackFunction]="chartCallback"
 
-    style="width: 100%; height: 400px; display: block;"
-    ></highcharts-chart>
+[(update)]="updateFlag"
+[oneToOne]="oneToOneFlag"
+[runOutsideAngular]="runOutsideAngular"
+
+style="width: 100%; height: 400px; display: block;"
+></highcharts-chart>
 </mat-card>
 

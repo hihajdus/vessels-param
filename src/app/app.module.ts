@@ -13,6 +13,11 @@ import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http'
 import { AgGridModule } from 'ag-grid-angular';
 import { HighchartsChartModule } from 'highcharts-angular';
+import {FormsModule} from '@angular/forms';
+import {MatInputModule} from '@angular/material/input';
+import {NgFor} from '@angular/common';
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -30,7 +35,12 @@ import { HighchartsChartModule } from 'highcharts-angular';
     MatCardModule,
     HttpClientModule,
     AgGridModule,
-    HighchartsChartModule
+    HighchartsChartModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    NgFor,
+    MatInputModule,
+    FormsModule
 
   ],
   providers: [],
