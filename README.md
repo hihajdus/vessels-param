@@ -1,6 +1,6 @@
 # VesselsParam
 
-This project is application to display vassales parameters and show emissions at the chart.
+This project is application to display vesseles parameters and show emissions at the chart.
 
 ## Development server
 
